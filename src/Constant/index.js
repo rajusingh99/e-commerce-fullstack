@@ -1,5 +1,9 @@
  import KURTA from './WomenKurta'
  import { mens_kurta } from './MenKurta';
+ import {color} from './filterData';
+import { filters } from './filterData';
+import { singleFilter } from './filterData';
+
  const MAINCAROUSELDATA=[
     {
       "images" :"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/0/10_5.jpg",
@@ -28,6 +32,8 @@
 const Constant ={
     MAINCAROUSELDATA,
     KURTA,
-    mens_kurta, user
+    mens_kurta, user,
+    color,filters,singleFilter
+
 }
 export default Constant;

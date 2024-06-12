@@ -2,7 +2,6 @@ import React from 'react'
 import { MainCarousel } from '../../Components/MainCarousel'
 import HomeSectionCarousel from '../../HomeSectionCarousel/HomeSectionCarousel'
 import Constant from '../../../Constant'
-import Footer from '../../Components/Footer'
 
 const HomePages = () => {
   return (
@@ -16,7 +15,7 @@ const HomePages = () => {
         <HomeSectionCarousel data={Constant.mens_kurta}  sectionName={"Women's Saree"}/>
         <HomeSectionCarousel data={Constant.mens_kurta}  sectionName={"Men's Belt"}/>
       </div>
-      <Footer/>
+
     </div>
   )
 }
