@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomeCard = ({product}) => {
+const HomeSectionCard = ({product}) => {
   return (
     <div 
     className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3"
@@ -25,4 +25,4 @@ const HomeCard = ({product}) => {
   );
 };
 
-export default HomeCard;
+export default HomeSectionCard;

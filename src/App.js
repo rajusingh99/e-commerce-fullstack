@@ -2,10 +2,12 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom'
 
 import Navigation from './customer/Navigation/Navigation';
-import ProductOverView from './customer/ProductOverview/Overview';
 import HomePages from './customer/Pages/Home/HomePages';
 import Product from './customer/Product/Product';
 import Footer from '../src/customer/Components/Footer'
+import ProductDetails from './customer/ProductDetails/ProductDetails';
+import Cart from './customer/Components/Cart/Cart';
+import Checkout from './customer/Components/Checkout/Checkout';
 
 function App() {
   return (
@@ -14,9 +16,13 @@ function App() {
           <Navigation/>
 
             {/* <HomePages/> */}
-          {/* <ProductOverView/> */}
-          <Product/>
+
+          {/* <Product/> */}
+          {/* <ProductDetails/> */}
           
+          {/* <Cart/> */}
+          <Checkout/>
+
           <Footer/>
     
       </BrowserRouter>

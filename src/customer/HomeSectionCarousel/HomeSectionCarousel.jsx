@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import AliceCarousel from 'react-alice-carousel'
-import HomeCard from '../HomeSectionCard/HomeCard';
+import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
 import { Button } from '@mui/material';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 const HomeSectionCarousel = ({data,sectionName}) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const items =  data.map((item)=> <HomeCard product={item}/>)
+  const items =  data.map((item)=> <HomeSectionCard product={item}/>)
   const responsive = {
       0: { items: 1 },
       720: { items: 3 },
