@@ -21,6 +21,7 @@ import { Box } from '@mui/material'
 import UserAccount from '../Components/UserAccount'
 import Constant from '../../Constant'
 import assets from '../Assets/index'
+import { useNavigate } from 'react-router-dom'
 const navigation = {
   categories: [
     {
@@ -151,6 +152,12 @@ function classNames(...classes) {
 export default function Navigation() {
   const [open, setOpen] = useState(false)
 
+  const navigate = useNavigate();
+
+  const handleCategoryClick =(category, section, item) =>{
+    navigate(`${category.id}/${section.id}/${item.name}`)
+  }
+
   return (
     <div className="bg-white">
       <Transition show={open}>
@@ -231,17 +238,22 @@ export default function Navigation() {
                             <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
                               {section.name}
                             </p>
-                            // eslint-disable-next-line jsx-a11y/no-redundant-roles
                             <ul
-                              role="list"
+                              role=""
                               aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
                               className="mt-6 flex flex-col space-y-6"
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 block p-2 text-gray-500">
+                                  {/* <a href={item.href} className="-m-2 block p-2 text-gray-500">
                                     {item.name}
-                                  </a>
+                                  </a> */}
+
+                                  <p onClick={()=>handleCategoryClick(category,section,item)}
+                                    className='cursor-pointer :hover-text-gray-800'
+                                   >
+                                    {item.name}
+                                  </p>
                                 </li>
                               ))}
                             </ul>
@@ -317,7 +329,6 @@ export default function Navigation() {
                     className="h-8 w-auto"
                     style={{borderRadius:'14px'}}
                     src={assets.logo}
-                    // src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt="logo"
                   />
                 </a>
@@ -378,19 +389,27 @@ export default function Navigation() {
                                     <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
                                       {category.sections.map((section) => (
                                         <div key={section.name}>
+                                          {
+                                            console.log(section,'sectionnnn')
+                                          }
                                           <p id={`${section.name}-heading`} className="font-medium text-gray-900">
                                             {section.name}
                                           </p>
                                           <ul
-                                            role="list"
+                                            role=""
                                             aria-labelledby={`${section.name}-heading`}
                                             className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                           >
                                             {section.items.map((item) => (
                                               <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
+                                                {/* <a href={item.href} className="hover:text-gray-800">
                                                   {item.name}
-                                                </a>
+                                                </a> */}
+                                                 <p onClick={()=>handleCategoryClick(category,section,item)}
+                                                    className='cursor-pointer :hover-text-gray-800'
+                                                  >
+                                                    {item.name}
+                                                  </p>
                                               </li>
                                             ))}
                                           </ul>

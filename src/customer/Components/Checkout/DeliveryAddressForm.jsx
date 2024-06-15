@@ -42,12 +42,12 @@ const DeliveryAddressForm = () => {
                           <TextField required id='lastName' name='lastName' label='Last Name' fullWidth autoComplete='given-name'/>
                       </Grid>
 
-                      <Grid item xs={12} sm={6}>
-                          <TextField required id='city' name='city' label='City' fullWidth autoComplete='given-name' />
+                      <Grid item xs={12} >
+                          <TextField required id='address' name='address' label='Address' fullWidth autoComplete='given-name' multiline rows={3}/>
                       </Grid>
 
                       <Grid item xs={12} sm={6}>
-                          <TextField required id='address' name='address' label='Address' fullWidth autoComplete='given-name'/>
+                          <TextField required id='city' name='city' label='City' fullWidth autoComplete='given-name' />
                       </Grid>
 
                       <Grid item xs={12} sm={6}>

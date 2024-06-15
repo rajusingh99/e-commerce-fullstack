@@ -8,16 +8,23 @@ import Logout from '@mui/icons-material/Logout';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import DvrRoundedIcon from '@mui/icons-material/DvrRounded';
 import InventoryIcon from '@mui/icons-material/Inventory';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserAccount({userRole}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleMyOrder =()=>{
+    navigate('/account/order')
+  }
   return (
     <React.Fragment>
       <Tooltip title="User Account">
@@ -87,7 +94,7 @@ export default function UserAccount({userRole}) {
         //     href={route('order.index')}
         //     className={` ${route().current() == "order.index" ? 'text-theme-primary' : ''} `}
         //   >
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={handleMyOrder}>
               <ListItemIcon>
                 <InventoryIcon 
                 // className={` ${route().current() == "order.index" ? 'text-theme-primary' : ''} `} fontSize="small"
