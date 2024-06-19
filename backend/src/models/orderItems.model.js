@@ -1,12 +1,12 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const {Schema} = mongoose;
 
 const orderItemSchema = new Schema({
     product :{
         type: mongoose.Schema.Types.ObjectId,
-        required:true,
         ref:"products",
+        required:true,
     },
     size:{
         type: String

@@ -5,14 +5,15 @@ const jwtProvider = require("../config/jwtProvider");
 const createUser = async (userData) => {
   try {
     let { firstName, lastName, email, password } = userData;
-    const isUserExist = await User.findOne(email);
+    const isUserExist = await User.findOne({ email: email });
 
     if (isUserExist) {
       throw new Error("user already exits with:", email);
     }
-    password = await bcrypt.hash(password, 10);
+    password = await bcrypt.hash(password,8);
 
     const user = await User.create({ firstName, lastName, email, password });
+
 
     return user;
   } 
@@ -23,12 +24,14 @@ const createUser = async (userData) => {
 
 const getUserById = async (userId) => {
   try {
-    const user = await User.findByd(userId)?.populate("address");
+    const user = await User.findByd(userId)
+    // ?.populate("address");
     if (!user) {
       throw new Error("user not found with id: ", userId);
     }
     return user;
-  } catch (error) {
+  }
+   catch (error) {
     throw new Error(error.message);
   }
 };
@@ -44,7 +47,7 @@ const getUserByEmail = async (email) => {
   }
 };
 
-const getUserProfileByToken = async (token) => {
+const getUserProfileByToken = async(token) => {
   try {
     const userId = jwtProvider.getUserIdFromToken(token);
 
@@ -53,7 +56,8 @@ const getUserProfileByToken = async (token) => {
       throw new Error("user not found with id: ", userId);
     }
     return user;
-  } catch (error) {
+  }
+   catch (error) {
     throw new Error(error.message);
   }
 };
@@ -61,11 +65,12 @@ const getUserProfileByToken = async (token) => {
 const getAllUsers = async () => {
   try {
     const users = await User.find();
-    if (!users) {
-      throw new Error("No user found yet!", users);
-    }
+    // if (!users) {
+    //   throw new Error("No user found yet!", users);
+    // }
     return users;
-  } catch (error) {
+  } 
+  catch (error) {
     throw new Error(error.message);
   }
 };
